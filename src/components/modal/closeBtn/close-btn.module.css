@@ -1,0 +1,14 @@
+.close_btn_modal{
+    padding: 3px 10px 6px 10px;
+    font-family: "__Caveat_201167";
+    font-size: 16px;
+    color: var(--white);
+    background-color: var(--purple);
+    border: none;
+    border-radius: 8px;
+    
+}
+
+.close_btn_modal:hover{
+    background-color: var(--purpleDark);
+}

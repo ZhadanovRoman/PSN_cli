@@ -1,8 +1,17 @@
 import './globals.css'
-import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import type { Metadata } from 'next';
+import { Providers } from './GlobalRedux/provider';
+import { Inter, Roboto, Caveat} from 'next/font/google'
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ subsets: ['latin'] });
+const caveat = Caveat ({
+  subsets: ['latin'],
+  weight: ['600','400', '500','700'], 
+});
+const roboto = Roboto({
+  subsets: ['latin', 'cyrillic'],
+  weight: ['300','400', '500','700'], 
+});
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -13,10 +22,13 @@ export default function RootLayout({
   children,
 }: {
   children: React.ReactNode
+  
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <Providers>
+      <body className={caveat.className}>{children}</body>
+      </Providers>
     </html>
   )
 }

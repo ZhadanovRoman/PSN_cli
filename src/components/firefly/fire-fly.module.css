@@ -1,0 +1,51 @@
+.fireflyContainer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: transparent; 
+   
+  }
+
+.firefly {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background-color: var(--purple); 
+    border-radius: 50%;
+    box-shadow: 0 0 8px rgba(255, 255, 0, 0.6);
+    opacity: 0;
+    animation: move 5s linear infinite, move2 5s linear infinite, move3 5s linear infinite, glow 1.5s ease-in-out infinite;
+   z-index: 100;
+  }
+  
+  @keyframes move {
+    0% { transform: translate(0, 0); }
+    25% { transform: translate(30vw, 20vh); }
+    50% { transform: translate(-20vw, 40vh); }
+    75% { transform: translate(10vw, -30vh); }
+    100% { transform: translate(0, 0); }
+  }
+  
+  @keyframes move2 {
+    0% { transform: translate(0, 0); }
+    25% { transform: translate(-30vw, 25vh); }
+    50% { transform: translate(20vw, -40vh); }
+    75% { transform: translate(-10vw, 30vh); }
+    100% { transform: translate(0, 0); }
+  }
+  
+  @keyframes move3 {
+    0% { transform: translate(0, 0); }
+    25% { transform: translate(20vw, -20vh); }
+    50% { transform: translate(-20vw, 10vh); }
+    75% { transform: translate(30vw, 30vh); }
+    100% { transform: translate(0, 0); }
+  }
+  
+ 
+  @keyframes glow {
+    0%, 100% { opacity: 0; }
+    50% { opacity: 1; }
+  }

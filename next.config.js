@@ -1,4 +1,13 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {}
-
-module.exports = nextConfig
+const nextConfig = {
+    async rewrites() {
+      return [
+        {
+          source: '/api/:path*',
+          destination: 'http://localhost:5000/:path*', // Прокси сервер на локальный API сервер
+        },
+      ];
+    },
+  };
+  
+  module.exports = nextConfig;

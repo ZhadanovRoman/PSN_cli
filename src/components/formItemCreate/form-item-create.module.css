@@ -1,0 +1,27 @@
+.registr__form{
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.registr__form_label{
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+   
+}
+
+.registr__form_input{
+    border: 1px solid var(--purple);
+}
+
+.registr__form_btn{
+    width: 70%;
+    margin: 0 auto;
+    font-family: "__Caveat_201167";
+    text-transform: uppercase;
+    color: var(--white);
+    background-color: var(--purple);
+    border: none;
+    border-radius: 5px;
+}

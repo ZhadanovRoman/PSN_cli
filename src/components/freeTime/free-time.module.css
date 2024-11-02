@@ -1,0 +1,66 @@
+.freeTime__container {
+    padding: 10% 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url('../../../public/Images/proStudAI.jpg');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.freeTime__block {
+    padding: 3%;
+    
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgba(0, 0, 0, 0.7);
+
+}
+
+.freeTime__title {
+    font-size: 40px;
+    color: var(--white);
+}
+
+.freeTime__list {
+    width: 100%;
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: space-between;
+}
+
+.freeTime__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 5px;
+    width: 50px;
+    padding: 2%;
+    background: black;
+    color: var(--white);
+    border: 1px solid var(--white);
+    font-size: 12px;
+    overflow: hidden;
+}
+.freeTime__item:not(:last-child){
+    margin-right: 10px;
+}
+
+.freeTime__item_span {
+    font-size: 8px;
+}
+
+.freeTime__create_btn {
+    padding: 10px 25px;
+    border: none;
+    border-radius: 10px;
+    outline: none;
+    color: var(--white);
+    background-color: var(--blue);
+}
+.freeTime__item_text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
