@@ -30,7 +30,7 @@ const useCreateItem = (data: IData) => {
         };
 
         fetchData();
-    }, []);
+    }, [data.date, data.time]);
 
     return
 };
