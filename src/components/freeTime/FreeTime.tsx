@@ -1,5 +1,4 @@
 
-
 "use client";
 import React, { useMemo, useState, useEffect, useCallback } from "react";
 import useGetData from "@/hooks/useGetData";
@@ -104,7 +103,7 @@ const FreeTime: React.FC = () => {
         } else if (isMatch) {
           setMaster(true);
         } else {
-          console.log('логин или пароль не совпадает!');
+          console.log('Пароль не совпадает!');
         }
       });
     }

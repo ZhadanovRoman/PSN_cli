@@ -1,3 +1,4 @@
+"use client";
 
 import { useForm, SubmitHandler, Controller } from 'react-hook-form';
 import { useRouter } from 'next/navigation';
@@ -28,9 +29,9 @@ const LoginForm: React.FC = () => {
     const { register, handleSubmit, control, formState: { errors }, reset } = useForm<Inputs>();
 
     const onSubmit: SubmitHandler<Inputs> = async (data) => {
-       
+        console.log("Submitted data:", data);
         try {
-            const response = await fetch(`https://${process.env.NEXT_PUBLIC_PROXY_IP}/api/auth/login`, {
+            const response = await fetch("http://localhost:5000/auth/login", {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -76,7 +77,7 @@ const LoginForm: React.FC = () => {
                             value={value || '+7'}
                            onChange={(maskedValue: string) => {
                                 onChange(`7${maskedValue}`);
-                                //console.log('Текущее значение инпута при изменении:', maskedValue);
+                            
                             }}
                             className={styles.registr__form_input}
                             placeholder="+7 (___) ___-__-__"
