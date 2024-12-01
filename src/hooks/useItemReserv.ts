@@ -1,8 +1,8 @@
 "use client"
 
-const useItemReserv = async (id: string, clientName: string ) => {
+const itemReserv = async (id: string, clientName: string ) => {
     try {
-        const response: any = await fetch("http://localhost:5000/item/create", {
+        const response: any = await fetch(`https://${process.env.NEXT_PUBLIC_PROXY_IP}/api/item/create`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
@@ -25,4 +25,4 @@ const useItemReserv = async (id: string, clientName: string ) => {
     }
 };
 
-export default useItemReserv;
+export default itemReserv;

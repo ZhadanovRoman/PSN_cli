@@ -10,13 +10,13 @@ const useGetData = (): any => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response: any = await fetch("http://localhost:5000/items/");
+                const response: any = await fetch(`https://${process.env.NEXT_PUBLIC_PROXY_IP}/api/items/`);
                 const data = await response.json();
 
                 setDataArr(data);
             } catch (error) {
                 console.log('Error!!!!!')
-                console.error("Error fetching data:", error);
+                console.error("Error ing data:", error);
             }
         };
 

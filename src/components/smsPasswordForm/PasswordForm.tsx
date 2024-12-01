@@ -16,7 +16,7 @@ const PasswordForm: React.FC = () => {
     const smsToken = useSelector((state: RootState) => state.smsToken.value)
     const onSubmit: SubmitHandler<Inputs> = async (data) => {
         try {
-            const res = await fetch("http://localhost:5000/validateSmsPass", {
+            const res = await fetch(`https://${process.env.NEXT_PUBLIC_PROXY_IP}/api/validateSmsPass`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

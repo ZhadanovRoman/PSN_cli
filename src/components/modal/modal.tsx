@@ -33,7 +33,7 @@ const Modal: React.FC<ModalProps> = ({ text, masterMarker, onClose, onReserv }) 
   }, [onClose]);
 
   const itemDelete = async () => {
-    const res = await fetch('http://localhost:5000/item/delete', {
+    const res = await fetch(`https://${process.env.NEXT_PUBLIC_PROXY_IP}/api/item/delete`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',

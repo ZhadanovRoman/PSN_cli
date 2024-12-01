@@ -16,7 +16,7 @@ const FormItemCreate: React.FC = () => {
       
       try {
   
-        const response = await fetch("http://localhost:5000/item/create", {
+        const response = await fetch(`https://${process.env.NEXT_PUBLIC_PROXY_IP}/api/item/create`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

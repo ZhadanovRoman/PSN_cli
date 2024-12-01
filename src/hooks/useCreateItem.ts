@@ -12,7 +12,7 @@ const useCreateItem = (data: IData) => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response: any = await fetch("http://localhost:5000/item/create", {
+                const response: any = await fetch(`https://${process.env.NEXT_PUBLIC_PROXY_IP}/api/item/create`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -30,7 +30,7 @@ const useCreateItem = (data: IData) => {
         };
 
         fetchData();
-    }, []);
+    }, [data.date, data.time]);
 
     return
 };
