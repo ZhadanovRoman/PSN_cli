@@ -1,5 +1,5 @@
-
 "use client";
+
 import React, { useMemo, useState, useEffect, useCallback } from "react";
 import useGetData from "@/hooks/useGetData";
 import styles from './free-time.module.css';
@@ -32,22 +32,27 @@ interface IToken {
   master: string;
 }
 
+interface Client {
+  clientName: string;
+  clientId: string;
+}
+
 const FreeTime: React.FC = () => {
   const dataArr = useGetData();
   const [correctArr, setCorrectArr] = useState<DataItem[]>([]);
   const [selectedItemId, setSelectedItemId] = useState<string | null>(null);
-  const [client, setClient] = useState<string>('');
+  const [client, setClient] = useState<Client | null>(null);
   const [master, setMaster] = useState<boolean>(false);
   const [masterCrypt, setMasterCrypt] = useState<string | null>(null);
-  
+
   const createBtnMarker = useSelector((state: RootState) => state.createBtn.value);
   const isItemId = useSelector((state: RootState) => state.itemId.value);
   const modalChange = useSelector((state: RootState) => state.modalChange.value);
-  
+  const [reservedItem, setReservedItem] = useState<DataItem | null>(null);
   const masterKey: string | undefined = process.env.NEXT_PUBLIC_MASTER_KEY;
   const dispatch = useDispatch();
 
-  // Мемоизация `openModal`, `closeModal`, `btnCreateChange` и `handleItemReserv`
+
   const openModal = useCallback(() => {
     dispatch(stateModalChange());
   }, [dispatch]);
@@ -62,9 +67,9 @@ const FreeTime: React.FC = () => {
   }, [dispatch]);
 
   const handleItemReserv = useCallback(
-    async (id: string, clientName: string) => {
+    async (id: string, clientName: string, clientId: string) => {
       try {
-        await itemReserv(id, clientName);
+        await itemReserv(id, clientName, clientId);
         setSelectedItemId(id);
 
         setCorrectArr(prevArr =>
@@ -93,7 +98,7 @@ const FreeTime: React.FC = () => {
 
   useEffect(() => {
     if (token?.clientName) {
-      setClient(token.clientName);
+      setClient({ clientName: token.clientName, clientId: token._id });
     }
 
     if (masterCrypt && masterKey) {
@@ -110,11 +115,15 @@ const FreeTime: React.FC = () => {
 
     if (Array.isArray(dataArr)) {
       const freeItems = dataArr.filter((el) => el.reserv !== 'занято');
+      const reservedItemArr = dataArr.filter((el) => el.clientId === token?._id);
+      setReservedItem(reservedItemArr[0])
       setCorrectArr(master ? dataArr : freeItems);
     }
   }, [token, masterCrypt, masterKey, dataArr, master]);
 
+
   const items = useMemo<React.ReactNode[]>(() => {
+
     if (!Array.isArray(correctArr)) {
       return [<div key="loading">Loading...</div>];
     }
@@ -149,18 +158,29 @@ const FreeTime: React.FC = () => {
     <div className={styles.freeTime__container} onClick={() => setSelectedItemId(null)}>
       <div className={styles.freeTime__block}>
         <p className={styles.freeTime__title}>Свободные окошки</p>
+
         <ul className={styles.freeTime__list}>{items}</ul>
         {master && (
           <button onClick={() => { openModal(); btnCreateChange(); }} className={styles.freeTime__create_btn}>
             Добавить окошко
           </button>
         )}
+        {!master && ( // если мастеру нужно видить окна которые он забронировал то нужно убрать !master
+          <strong className={styles.freeTime__reserv}>Вы записаны на прием ! <br></br>
+            {reservedItem ? [`дата  ${reservedItem.date}`, ' ', `время ${reservedItem.time}`] : ''}
+          </strong>
+        )
+        }
       </div>
+
+
       {modalChange && (
         <Modal
           text={!master || !createBtnMarker ? "Выберите действие" : "Создать запись"}
           masterMarker={master}
-          onReserv={() => handleItemReserv(isItemId, client)}
+          onReserv={() => {
+            if (client) handleItemReserv(isItemId, client.clientName, client.clientId)
+          }}
           onClose={closeModal}
         />
       )}

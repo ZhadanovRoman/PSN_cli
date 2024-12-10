@@ -4,7 +4,7 @@
     height: 100vh;
     display: flex;
     flex-direction: column;
-    background-image: url(../../../public/Images/mainBg.png);
+    background-image: url(../../../public/Images/laki.jpg);
     background-size: cover;
 }
 
@@ -27,4 +27,10 @@
     font-weight: 300;
     z-index: 1;
     text-transform: capitalize;
+}
+
+@media (max-width: 980px) {
+    .auth__title {
+        font-size: 35px;
+    }
 }

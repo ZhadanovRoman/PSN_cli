@@ -1,16 +1,17 @@
 .freeTime__container {
-    padding: 10% 0;
+
     display: flex;
     align-items: center;
     justify-content: center;
-    background-image: url('../../../public/Images/proStudAI.jpg');
+    background-image: url('../../../public/Images/laki.jpg');
     background-repeat: no-repeat;
-    background-size: 100% 100%;
+    background-size: cover;
+    height: 100vh;
 }
 
 .freeTime__block {
     padding: 3%;
-    
+
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -43,7 +44,8 @@
     font-size: 12px;
     overflow: hidden;
 }
-.freeTime__item:not(:last-child){
+
+.freeTime__item:not(:last-child) {
     margin-right: 10px;
 }
 
@@ -59,8 +61,18 @@
     color: var(--white);
     background-color: var(--blue);
 }
+
 .freeTime__item_text {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.freeTime__reserv {
+    color: var(--white);
+    font-size: 30px;
+    text-align: center;
+    padding: 3%;
+    border: 4px solid var(--red);
+    border-radius: 20px;
 }

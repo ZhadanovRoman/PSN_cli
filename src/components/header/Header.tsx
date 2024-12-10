@@ -29,7 +29,7 @@ const Header: React.FC = () => {
             <div className={styles.header__logo_block}>
                 <Image className={styles.header__logo} src={logo.src} alt="logo" width={100} 
                             height={100} aria-label="ProStudioNails"/>
-                            <a className={styles.header__phone} href="tel:+79786504010">+7 (978) 650-40-10</a>
+                            <a className={styles.header__phone} href="https://t.me/Katyaatyaaaa" target="_blank" rel="noopener noreferrer">+7 (978) 650-40-10</a>
                 </div>
                 
                 <nav className={styles.header__nav} aria-label="Main navigation">

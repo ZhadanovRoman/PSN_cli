@@ -45,9 +45,10 @@ const RegistrationForm: React.FC = () => {
     const onSubmit: SubmitHandler<Inputs> = async (data) => {
         console.log('Submitted Data:', data);
         dataRef.current = data;
+     
 
         try {
-            const response = await fetch("http://localhost:5000/generateSmsPass", {
+            const response = await fetch(`https://${process.env.NEXT_PUBLIC_PROXY_IP}/api/generateSmsPass`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -74,7 +75,7 @@ const RegistrationForm: React.FC = () => {
                 console.log('SMS Pass received, submitting registration...');
 
                 try {
-                    const response = await fetch("http://localhost:5000/auth/registr", {
+                    const response = await fetch(`https://${process.env.NEXT_PUBLIC_PROXY_IP}/api/auth/registr`, {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json',

@@ -1,7 +1,8 @@
 import './globals.css'
 import type { Metadata } from 'next';
 import { Providers } from './GlobalRedux/provider';
-import { Inter, Roboto, Caveat } from 'next/font/google'
+import { Inter, Roboto, Caveat } from 'next/font/google';
+
 const metaKeywords: string = "маникюр Севастополь, гель-лак, акрил, педикюр, маникюр ул.Шевченко";
 const inter = Inter({ subsets: ['latin'] });
 const caveat = Caveat({
@@ -27,6 +28,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <link rel="icon" href="/icons/favicon.ico" type="image/x-icon" />
+      </head>
       <Providers>
         <body className={caveat.className}>{children}</body>
       </Providers>

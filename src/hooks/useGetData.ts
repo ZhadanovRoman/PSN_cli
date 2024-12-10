@@ -16,7 +16,7 @@ const useGetData = (): any => {
                 setDataArr(data);
             } catch (error) {
                 console.log('Error!!!!!')
-                console.error("Error ing data:", error);
+                console.error("Error fetching data:", error);
             }
         };
 

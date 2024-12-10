@@ -59,12 +59,12 @@ const Modal: React.FC<ModalProps> = ({ text, masterMarker, onClose, onReserv }) 
   return ReactDOM.createPortal(
     <div className={styles.modalOverlay}>
       <div className={styles.modal} ref={modalRef}>
-        <h4>{masterMarker || text === 'Введите код из смс' ? text : ''}</h4>
+        <h4 className={styles.modal__title}>{masterMarker || smsMarker ? text : ''}</h4>
         {masterMarker && createBtnMarker ? <FormItemCreate /> : ''}
-        <p>{masterMarker ? '' : text}</p>
+        <p className={styles.modal__paragraph}>{masterMarker || smsMarker ? '' : text}</p>
         {smsMarker && <PasswordForm />}
-        {!createBtnMarker && masterMarker ? <button onClick={itemDelete}>удалить запись</button> : ''}
-        {createBtnMarker ? '' : <button onClick={onReserv} className={styles.modal__reserv_btn}> {masterMarker ? 'забронировать окошко' : 'записаться'}</button>}
+        {!createBtnMarker && masterMarker ? <button onClick={itemDelete} className={styles.modal__delete_btn}>удалить запись</button> : ''}
+        {createBtnMarker || smsMarker ? '' : <button onClick={onReserv} className={styles.modal__reserv_btn}> {masterMarker ? 'забронировать окошко' : 'записаться'}</button>}
         {createBtnMarker ? '' : <CloseBtnModal />}
       </div>
     </div>,

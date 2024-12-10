@@ -1,32 +1,18 @@
-@keyframes fade-slider {
-    from {
-        translate: 25vw;
-        opacity: 0;
-    }
-}
 
 
-.swiper {
-    width: 500px;
-    height: 500px;
-    border-radius: 50% 10px;
-    position: relative;
 
-}
-
-.swiper::after {
-    content: '';
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    width: 90%;
-    height: 90%;
-    border: 1px solid var(--gray);
-    z-index: 9999;
-    border-radius: 50% 10px;
-    /*box-shadow: inset 5px 5px 5px 5px var(--gray);*/
-}
-
+.sliderWrapper {
+    opacity: 0; /* Начальное состояние — скрыто */
+    transform: translateY(250px); /* Смещено вниз */
+    transition: all 1.2s ease; /* Плавное появление */
+  }
+  
+  .sliderWrapper.animate {
+    opacity: 1; /* Показываем */
+    transform: translateY(0); /* Возвращаем в начальную позицию */
+  }
+  
+ 
 .swiper__slide {
     background-size: 10% 10%;
     background-repeat: no-repeat;
@@ -44,11 +30,18 @@
 }
 
 .swiper {
-    animation-name: fade-slider;
-    animation-fill-mode: both;
-    animation-timing-function: linear;
+    width: 500px;
+    height: 500px;
+    border-radius: 50% 10px;
+    position: relative;
 
-    view-timeline-name: --fade-in-title;
-    animation-timeline: --fade-in-title;
-    animation-range: 20% 50%;
+}
+
+@media (max-width: 980px) {
+    .swiper {
+        width: 150px;
+        height: 200px;
+       
+    }
+  
 }

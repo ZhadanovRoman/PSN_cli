@@ -11,7 +11,7 @@ const Map = () => {
     const loadYandexMaps = () => {
       if (!scriptLoaded.current) {
         const script = document.createElement('script');
-        script.src = 'https://api-maps.yandex.ru/2.1/?lang=ru_RU&apikey=ВАШ_API_КЛЮЧ';
+        script.src = 'https://api-maps.yandex.ru/2.1/?lang=ru_RU&apikey=""';
         script.type = 'text/javascript';
         script.onload = () => {
           if (window.ymaps && !mapRef.current) {
@@ -46,7 +46,7 @@ const Map = () => {
 
     return () => {
       if (mapRef.current) {
-        mapRef.current.destroy(); // Удаление карты при размонтировании компонента
+        mapRef.current.destroy(); 
       }
     };
   }, []);
@@ -55,7 +55,7 @@ const Map = () => {
      
 };
 
-// Добавляем displayName для компонента, чтобы избежать ошибки ESLint
+
 Map.displayName = 'YandexMap';
 
 export default React.memo(Map);

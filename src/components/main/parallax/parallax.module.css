@@ -7,7 +7,7 @@
     background-size: cover;
     background-attachment: fixed;
     height: 400px;
-
+    
 }
 
 .parallax strong {
@@ -49,37 +49,49 @@
     filter: blur(100px);
 }
 
-.parallax__top div:nth-child(1){
+.parallax__top div:nth-child(1) {
     top: 20px;
     left: 10%;
     background: radial-gradient(circle, rgb(61, 34, 194) 0%, rgb(35, 16, 71) 100%);
 }
-.parallax__top div:nth-child(2){
+
+.parallax__top div:nth-child(2) {
     top: -60px;
     left: 45%;
     background: radial-gradient(circle, rgb(230, 38, 38) 0%, rgb(81, 4, 13) 100%);
 }
 
-.parallax__top div:nth-child(3){
+.parallax__top div:nth-child(3) {
     top: 0px;
     left: 85%;
     background: radial-gradient(circle, rgb(186, 27, 101) 0%, rgb(171, 22, 77) 100%);
 }
 
-.parallax__bottom div:nth-child(1){
+.parallax__bottom div:nth-child(1) {
     top: -60px;
     left: 0%;
     background: radial-gradient(circle, rgb(186, 27, 101) 0%, rgb(171, 22, 77) 100%);
 }
 
-.parallax__bottom div:nth-child(2){
+.parallax__bottom div:nth-child(2) {
     top: -40px;
     left: 40%;
     background: radial-gradient(circle, rgb(195, 151, 17) 0%, rgb(135, 98, 2) 100%);
 }
 
-.parallax__bottom div:nth-child(3){
+.parallax__bottom div:nth-child(3) {
     top: -20px;
     left: 75%;
     background: radial-gradient(circle, rgb(91, 5, 91) 0%, rgb(67, 1, 72) 100%);
+}
+
+@media (max-width: 980px) {
+    .parallax strong {
+        font-size: 55px;
+    }
+    .parallax {
+     background-size: 400%;
+        background-repeat: no-repeat;
+        height: 150px;
+    }
 }

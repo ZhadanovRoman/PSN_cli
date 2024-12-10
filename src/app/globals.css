@@ -7,6 +7,7 @@
     --swiper-theme-color: rgb(0, 255, 55);
     --blue: #1c44e7;
     --swiper-theme-color:var(--gray)!important;
+    --red: #fe0202;
 }
 
 body{

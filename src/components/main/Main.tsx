@@ -20,18 +20,26 @@ import slider2pic1 from '../../../public/Images/pinkFN.jpg';
 import slider2pic2 from '../../../public/Images/red2FN.jpg';
 import slider2pic3 from '../../../public/Images/redFN.jpg';
 import Firefly from '../firefly/FireFly';
+
+import { useDispatch } from 'react-redux';
+import { stateChange } from '@/app/GlobalRedux/loginSlice';
+
 export default function Main() {
+    const dispatch = useDispatch();
+    const handel = () => {
+        dispatch(stateChange())
+    };
     // Массивы для картинок слайдеров
     const slider1Images = [slider1pic1, slider1pic2, slider1pic3, slider1pic4, slider1pic5, slider1pic6];
     const slider2Images = [slider2pic1, slider2pic2, slider2pic3];
 
     return (
         <main className={styles.main}>
-            
+
             <section className={styles.hero}>
-            <Firefly/>
+                <Firefly />
                 <div className={`${styles.hero__container} container`}>
-                    
+
                     <h1 className={styles.hero__seo}>маникюр педикюр севастополь ул.Шевченко наращивание ногтей гельлак</h1>
                     <div className={styles.hero__descr}>
                         <strong className={styles.hero__descr_title}>
@@ -39,14 +47,16 @@ export default function Main() {
                         </strong>
                         <span className={styles.hero__descr_line}></span>
                         <p className={styles.hero__descr_txt}>
-                            зарегистрируйся и получи скидку 10% на свою первую процедуру
+                            Запишись на прием к мастеру с <strong>опытом работы 5+</strong> лет.</p>
+                        <p className={styles.hero__descr_txt}>
+                            Зарегистрируйся и получи скидку 10% на свою первую процедуру
                         </p>
-                        <Link href="/personalRegistr" className={styles.hero__descr_btn}>
+                        <Link href="/auth" className={styles.hero__descr_btn} onClick={handel}>
                             скидка 10%
                         </Link>
                     </div>
                     <div className={styles.hero__images}>
-                       <Image src={firstImg.src} alt="маникюр Севастополь" className={styles.hero__img} width={300} height={300} /> 
+                        <Image src={firstImg.src} alt="маникюр Севастополь" className={styles.hero__img} width={300} height={300} />
                         <Image src={secondImg.src} alt="маникюр ул.Шевченко" className={styles.hero__img} width={300} height={300} />
                         <Image src={thirdImg.src} alt="педикюр шевченко" className={styles.hero__img} width={300} height={300} />
                     </div>
@@ -54,13 +64,13 @@ export default function Main() {
             </section>
 
             <section className={styles.gallery}>
-            
+
                 <div className={styles.gallery__container}>
                     <h3 className={`${styles.gallery__container_title} container `}>
                         наши работы
                     </h3>
                     <div className={styles.gallery__top}>
-                    <Firefly/>
+                        <Firefly />
                         <div className={styles.gallery__top_block}>
                             <h2 className={`${styles.gallery__top_title} container`}>маникюр</h2>
                             <p className={`${styles.gallery__top_descr} container`}>- Гигиенический маникюр (без покрытия) -900₽</p>
@@ -72,16 +82,16 @@ export default function Main() {
                         <Slider images={slider1Images} />
                     </div>
                     <Parallax />
-                  
+
                     <div className={styles.gallery__bottom}>
-                    
-                        <div className={styles.gallery__top_block}>
+
+                        <div className={styles.gallery__bottom_block}>
                             <h2 className={`${styles.gallery__bottom_title} container`}>педикюр</h2>
-                            <p className={`${styles.gallery__top_descr} container`}>- педикюр гигиенический (обработка пальчиков или стоп) -900₽</p>
-                            <p className={`${styles.gallery__top_descr} container`}>- педикюр гигиенический (обработка пальчиков и стоп) -1600₽</p>
-                            <p className={`${styles.gallery__top_descr} container`}>- педикюр с покрытием гель-лаком (обработка пальчиков + покрытие гель-лаком+ обработка стоп) -2000₽</p>
-                            <p className={`${styles.gallery__top_descr} container`}>- педикюр с покрытием обычным лаком (обработка пальчиков + покрытие обычный лаком + стопы) -1700₽</p>
-                            <p className={`${styles.gallery__top_descr} container`}>- педикюр с покрытием обычным лаком (обработка пальчиков + покрытие обычным лаком) -1000₽</p>
+                            <p className={`${styles.gallery__bottom_descr} container`}>- педикюр гигиенический (обработка пальчиков или стоп) -900₽</p>
+                            <p className={`${styles.gallery__bottom_descr} container`}>- педикюр гигиенический (обработка пальчиков и стоп) -1600₽</p>
+                            <p className={`${styles.gallery__bottom_descr} container`}>- педикюр с покрытием гель-лаком (обработка пальчиков + покрытие гель-лаком+ обработка стоп) -2000₽</p>
+                            <p className={`${styles.gallery__bottom_descr} container`}>- педикюр с покрытием обычным лаком (обработка пальчиков + покрытие обычный лаком + стопы) -1700₽</p>
+                            <p className={`${styles.gallery__bottom_descr} container`}>- педикюр с покрытием обычным лаком (обработка пальчиков + покрытие обычным лаком) -1000₽</p>
                         </div>
 
 
@@ -91,7 +101,7 @@ export default function Main() {
             </section>
 
             <section className={styles.map} id='mapSection'>
-            
+
                 <div className={styles.map__container}>
                     <div className={styles.map__address}>
                         <h3 className={styles.map__title}>Мастер ведет прием<br></br> по адресу :</h3>

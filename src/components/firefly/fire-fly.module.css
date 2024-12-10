@@ -49,3 +49,10 @@
     0%, 100% { opacity: 0; }
     50% { opacity: 1; }
   }
+
+  @media (max-width: 980px) {
+    .firefly { 
+        width: 2px;
+        height: 2px;
+    }
+}

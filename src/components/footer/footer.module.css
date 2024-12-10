@@ -1,0 +1,33 @@
+.footer {
+    background-color: var(--black);
+}
+
+.footer__container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer__address {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer__address span,
+.footer__dev_link,
+.footer__address_link {
+    text-decoration: none;
+    color: inherit;
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: var(--white);
+}
+
+@media (max-width: 980px) {
+
+    .footer__address span,
+    .footer__dev_link,
+    .footer__address_link {
+        font-size: 15px;
+    }
+}
